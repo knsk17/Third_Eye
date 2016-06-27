@@ -115,30 +115,33 @@ $(function(){
     accordion部分にタブリストを生成
   */
   function createTabMenu(){
-    var accordion = $("#accordion");
+    var tab = $("#tab");
     var tab_html ="";
     //タブタイトル
-    tab_html += '<ul id = "tab" class="nav nav-tabs">'
+    tab_html += '<ul id="tab-head">';
+    var num = 1;
     for(var i in tabNames){
-      tab_html += "<li>" + tabNames[i] + "</li>";
+
+      tab_html += "<li id='tab'"+num+"><a href='#tab-b1'>" + tabNames[i] + "</a></li>";
+      num++;
     }
     // tab_html += "<div class = "tab-title-bar"></div>"; //スライダー
     tab_html += "</ul>";
     //タブコンテンツ
 
-    accordion.html(tab_html);
+    tab.html(tab_html);
   }
 
   function onChangeSelect(index){
     if(index == -1){
       //初期値の場合,変化なし
-      $("#accordion").html("");
+      $("#tab").html("");
       setSelectedAreaName("");
       return;
     }
     //初期値以外の処理
     setSelectedAreaName(areaModels[index].label); //選択市区町村を保存
-    if($("#accordion").children().length === 0){
+    if($("#tab").children().length === 0){
       //accordionに子要素が無い場合、roster.csvからタブリスト生成
       createPoliList(function(){
         createTabMenu();
@@ -152,7 +155,6 @@ $(function(){
     var index = $(data.target).val(); //選択した市区町村固有のValue値を取得
     onChangeSelect(index);
   });
-  $("#tab").tab("show");
 
   updateAreaList();
 });
