@@ -122,7 +122,7 @@ $(function(){
     var num = 1;
     for(var i in tabNames){
 
-      tab_html += "<li id='tab'"+num+"><a href='#tab-b1'>" + tabNames[i] + "</a></li>";
+      tab_html += "<li id='tab" +num+ "'><a href='#tab-b" + num + "'>" + tabNames[i] + "</a></li>";
       num++;
     }
     // tab_html += "<div class = "tab-title-bar"></div>"; //スライダー
