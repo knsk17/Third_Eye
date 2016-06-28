@@ -134,7 +134,8 @@ $(function(){
 
     tab.html(tab_html);
 
-
+    $("#tab-title > .tab").css({'display':'inline-block', 'background-color':'gray'});
+    $("#tab-title > .tab.active").css('background-color','yellow');
   }
 
   function onChangeSelect(index){
@@ -171,6 +172,5 @@ $(function(){
 
   updateAreaList();
 
-  $("#tab-title > .tab").css({'display':'inline-block', 'background-color':'gray'});
-  $("#tab-title > .tab.active").css('background-color','yellow');
+
 });
