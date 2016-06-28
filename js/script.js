@@ -134,7 +134,7 @@ $(function(){
 
     tab.html(tab_html);
     $("#tabs > .tab").css({'display':'inline-block', 'background-color':'gray'});
-    $("#tabs > .tab.active").css('background-color':'yellow');
+    $("#tabs > .tab.active").css('background-color','yellow');
 
   }
 
