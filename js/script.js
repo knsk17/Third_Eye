@@ -133,8 +133,7 @@ $(function(){
     //タブコンテンツ
 
     tab.html(tab_html);
-    $("#tabs > .tab").css({'display':'inline-block', 'background-color':'gray'});
-    $("#tabs > .tab.active").css('background-color','yellow');
+
 
   }
 
@@ -171,4 +170,7 @@ $(function(){
   })
 
   updateAreaList();
+
+  $("#tab-title > .tab").css({'display':'inline-block', 'background-color':'gray'});
+  $("#tab-title > .tab.active").css('background-color','yellow');
 });
