@@ -134,8 +134,11 @@ $(function(){
 
     tab.html(tab_html);
 
-    $("#tab-title > .tab").css({'display':'inline-block', 'background-color':'gray'});
-    $("#tab-title > .tab.active").css('background-color','yellow');
+    $("ul, li").css({'display':'block', 'margin':'0', 'padding':'0', 'list-style-type':'none'});
+    $("#tab-title").css('width', '100%');
+    $("#tab-title > .tab").css({'display':'inline-block', 'background-color':'#1c7a74',
+                                    'color':'#fff', 'text-align':'center', 'padding':'.8em 0'});
+
   }
 
   function onChangeSelect(index){
