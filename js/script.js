@@ -122,9 +122,9 @@ $(function(){
     var num = 1;
     for(var i in tabNames){
       if(num == 1){
-        tab_html += "<li id='tab" +num+ "' class='tab active'><a href='#content" + num + "'>" + tabNames[i] + "</a></li>";
+        tab_html += "<li id='tab" +num+ "' class='tab active'>" + tabNames[i] + "</li>";
       }else{
-        tab_html += "<li id='tab" +num+ "' class='tab'><a href='#content" + num + "'>" + tabNames[i] + "</a></li>";
+        tab_html += "<li id='tab" +num+ "' class='tab'>" + tabNames[i] + "</li>";
       }
       num++;
     }
