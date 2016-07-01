@@ -175,11 +175,11 @@ $(function(){
                             'color':'#fff', 'text-align':'center', 'padding':'.8em 0',
                             'width':'25%', 'cursor':'pointer'});
     $(".tab-title-bar").css({'position':'absolute', 'left':'0', 'bottom':'0',
-                              'width':'25%', 'height':'3px', 'background-color':'#FAA52E',
-                              '-webkit-transition':' .45s ease-in-out',
-                              '-moz-transition':' .45s ease-in-out',
-                              '-o-transition':' .45s ease-in-out',
-                              'transition':' .45s ease-in-out'})
+                              'width':'25%', 'height':'3px', 'background-color':'#FAB42E',
+                              '-webkit-transition':' .30s ease-in-out',
+                              '-moz-transition':' .30s ease-in-out',
+                              '-o-transition':' .30s ease-in-out',
+                              'transition':' .30s ease-in-out'})
     $("#tab_contents li").css({'display':'none', 'padding':'1.4em', 'background-color':'#90cbc7'});
     $("#tab_contents li.active").css('display', 'block');
     //tabの選択時
