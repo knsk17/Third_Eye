@@ -169,7 +169,7 @@ $(function(){
 
     $("ul, li").css({'display':'block', 'margin':'0', 'padding':'0', 'list-style-type':'none'});
     $("#tab-title").css('width', '100%');
-    $("#tab-title li").css({'display':'inline-block', 'background-color':'#bf00215',
+    $("#tab-title li").css({'display':'inline-block', 'background-color':'#fa6d2e',
                             'color':'#fff', 'text-align':'center', 'padding':'.8em 0',
                             'width':'25%'});
 
