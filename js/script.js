@@ -103,10 +103,7 @@ $(function(){
           groups.push(row[1]);
         }
       }
-      //タブに表示する用の配列＝議会区分（重複なし）
-      tabNames = groups.filter(function(element, index, self){
-        return self.indexOf(element) === index;
-      });
+
       after_action();
     });
   }
@@ -117,26 +114,62 @@ $(function(){
   function createTabMenu(){
     var tab = $("#tabs");
     var tab_html ="";
-    //タブタイトル
-    tab_html += '<ul id="tab-title">';
-    var num = 1;
-    for(var i in tabNames){
-      if(num == 1){
-        tab_html += "<li id='tab" +num+ "' class='tab active'>" + tabNames[i] + "</li>";
-      }else{
-        tab_html += "<li id='tab" +num+ "' class='tab'>" + tabNames[i] + "</li>";
+    var selected_area = getSelectedAreaName();
+    //tab-titleとtab-contentsを挿入する
+    /*TAB-TITLE*/
+    tab_html += "<ul id='tab-title'>";
+    for(var num = 1; num < 5; num++){
+      if(num==1){
+        tab_html += "<li id='tab1' class='active'></li>";
+        continue;
       }
-      num++;
+      tab_html += "<li id='tab" + num + "'></li>";
     }
-    // tab_html += "<div class = "tab-title-bar"></div>"; //スライダー
     tab_html += "</ul>";
-    //タブコンテンツ
 
+    /*TAB-CONTENTS*/
+    tab_html += "<ul id='tab_contents'>";
+    for(var num=1; num<5; num++){
+      if(num==1){
+        tab_html += "<li id='content" + num +"' class='active'></li>";
+        continue;
+      }
+      tab_html += "<li id='content" + num +"'></li>";
+    }
+    tab_html += "</ul>";
+
+    /*HTMLに反映*/
     tab.html(tab_html);
+
+    //選択エリアから、タブ表示名を反映させる
+    var cityKey = selected_area.slice(-1,-2); //市.区.町.村のどれか
+    switch (cityKey) {
+      case "市":
+        $("#tab1").html("市長");
+        $("#tab4").html("市");
+        break;
+      case "区":
+        $("#tab1").html("区長");
+        $("#tab4").html("区");
+        break;
+      case "町":
+        $("#tab1").html("町長");
+        $("#tab4").html("町");
+        break;
+      case "村":
+        $("#tab1").html("村長");
+        $("#tab4").html("村");
+        break;
+    }
+
+
+
+
+
 
     $("ul, li").css({'display':'block', 'margin':'0', 'padding':'0', 'list-style-type':'none'});
     $("#tab-title").css('width', '100%');
-    $("#tab-title li").css({'display':'inline-block', 'background-color':'#1c7a74',
+    $("#tab-title li").css({'display':'inline-block', 'background-color':'#bf00215',
                             'color':'#fff', 'text-align':'center', 'padding':'.8em 0',
                             'width':'25%'});
 

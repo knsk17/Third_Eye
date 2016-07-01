@@ -12,7 +12,20 @@
 <body>
   <h1>第三(者)の目-埼玉版-</h1>
   <!--地域選択後展開部分-->
-  <div id = "tabs"></div>
+  <div id = "tabs">
+    <ul id="tab-title">
+      <li id="tab1"></li>
+      <li id="tab2">国</li>
+      <li id="tab3">県</li>
+      <li id="tab4"></li>
+    </ul>
+    <ul id = "tab-contents">
+      <li id="content1" class="active"></li>
+      <li id="content2"></li>
+      <li id="content3"></li>
+      <li id="content4"></li>
+    </ul>
+  </div>
   <select class="form-control" id="select_area"></select>
 
   <!--ｊQueryのJS読込み-->
