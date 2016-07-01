@@ -141,6 +141,9 @@ $(function(){
     /*HTMLに反映*/
     tab.html(tab_html);
 
+    //国・県タブ
+    $("#tab2").html("国");
+    $("#tab3").html("県");
     //選択エリアから、タブ表示名を反映させる
     var cityKey = selected_area.slice(-1); //市.区.町.村のどれか
     switch (cityKey) {
@@ -161,10 +164,6 @@ $(function(){
         $("#tab4").html("村");
         break;
     }
-
-
-
-
 
 
     $("ul, li").css({'display':'block', 'margin':'0', 'padding':'0', 'list-style-type':'none'});
@@ -199,13 +198,13 @@ $(function(){
     onChangeSelect(index);
   });
 
-  $("#tabs a").on('click', function(e){
-    e.preventDefault();
-
-    var target = $(this).attr('href');
-    if(!$(target).length) return false;
-
-  })
+  //tabの選択時
+  $("#tab-title li").on('click', function(){
+    var position = $(this).index(); //選択されたタブのINDEX
+    var contents = $("#tab-contents li");
+    contents.removeClass('active');
+    contents.eq(position).addClass('active');
+  });
 
   updateAreaList();
 
