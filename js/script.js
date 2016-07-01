@@ -123,12 +123,9 @@ $(function(){
     /*TAB-TITLE*/
     tab_html += "<ul id='tab_title'>";
     for(var num = 1; num < 5; num++){
-      if(num==1){
-        tab_html += "<li id='tab1' class='active'></li>";
-        continue;
-      }
       tab_html += "<li id='tab" + num + "'></li>";
     }
+    tab_html += "<div class='tab-title-bar'></div>"; //スライダー
     tab_html += "</ul>";
 
     /*TAB-CONTENTS*/
@@ -174,8 +171,13 @@ $(function(){
     $("#tab_title").css('width', '100%');
     $("#tab_title li").css({'display':'inline-block', 'background-color':'#fa6d2e',
                             'color':'#fff', 'text-align':'center', 'padding':'.8em 0',
-                            'width':'25%'});
-
+                            'width':'25%', 'cursor':'pointer'});
+    $(".tab-title-bar").css({'position':'absolute', 'left':'0', 'bottom':'0',
+                              'width':'25%', 'height':'3px', 'background-color':'#FAA52E',
+                              '-webkit-transition':' .45s ease-in-out',
+                              '-moz-transition':' .45s ease-in-out',
+                              '-o-transition':' .45s ease-in-out',
+                              'transition':' .45s ease-in-out'})
   }
 
   function onChangeSelect(index){
@@ -208,6 +210,10 @@ $(function(){
     var contents = $("#tab_contents li");
     contents.removeClass('active');
     contents.eq(position).addClass('active');
+
+    //スライドバー
+    var positionSlider = $(this).width()*potision; //スライダーの位置
+    $(".tab-title-bar").css('left', positionSlider+'px');
   });
 
   updateAreaList();
