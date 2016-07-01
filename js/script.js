@@ -170,6 +170,7 @@ $(function(){
     $("ul, li").css({'display':'block', 'margin':'0', 'padding':'0', 'list-style-type':'none'});
     $("#tab_title").css('width', '100%');
     $("#tab_title:before, #tab_title:after").css({'display':'table', 'content':''});
+    $("#tab_title:after").css('clear', 'both');
     $("#tab_title li").css({'display':'inline-block', 'background-color':'#fa6d2e',
                             'color':'#fff', 'text-align':'center', 'padding':'.8em 0',
                             'width':'25%', 'cursor':'pointer'});
@@ -179,7 +180,8 @@ $(function(){
                               '-moz-transition':' .45s ease-in-out',
                               '-o-transition':' .45s ease-in-out',
                               'transition':' .45s ease-in-out'})
-
+    $("#tab_contents li").css({'display':'none', 'padding':'1.4em', 'background-color':'#90cbc7'});
+    $("#tab_contents li.active").css('display', 'block');
     //tabの選択時
     $("#tab_title li").on('click', function(){
       var position = $(this).index(); //選択されたタブのINDEX
