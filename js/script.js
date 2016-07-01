@@ -142,7 +142,7 @@ $(function(){
     tab.html(tab_html);
 
     //選択エリアから、タブ表示名を反映させる
-    var cityKey = selected_area.slice(-1,-2); //市.区.町.村のどれか
+    var cityKey = selected_area.slice(-1); //市.区.町.村のどれか
     switch (cityKey) {
       case "市":
         $("#tab1").html("市長");
