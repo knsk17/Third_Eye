@@ -190,7 +190,7 @@ $(function(){
       $contents.eq(position).addClass('active');
 
       //スライドバー
-      var positionSlider = $(this).width()*potision; //スライダーの位置
+      var positionSlider = $(this).width()*position; //スライダーの位置
       $(".tab-title-bar").css('left', positionSlider+'px');
     });
   }
