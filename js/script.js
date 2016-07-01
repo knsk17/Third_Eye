@@ -1,5 +1,9 @@
 "use strict";
 
+/*
+  id名について、複数単語を合わせる場合は「＿」アンダーバーでつなぐ
+*/
+
 var AreaModel = function(){
   this.label; //市区町村名
 }
@@ -117,7 +121,7 @@ $(function(){
     var selected_area = getSelectedAreaName();
     //tab-titleとtab-contentsを挿入する
     /*TAB-TITLE*/
-    tab_html += "<ul id='tab-title'>";
+    tab_html += "<ul id='tab_title'>";
     for(var num = 1; num < 5; num++){
       if(num==1){
         tab_html += "<li id='tab1' class='active'></li>";
@@ -167,8 +171,8 @@ $(function(){
 
 
     $("ul, li").css({'display':'block', 'margin':'0', 'padding':'0', 'list-style-type':'none'});
-    $("#tab-title").css('width', '100%');
-    $("#tab-title li").css({'display':'inline-block', 'background-color':'#fa6d2e',
+    $("#tab_title").css('width', '100%');
+    $("#tab_title li").css({'display':'inline-block', 'background-color':'#fa6d2e',
                             'color':'#fff', 'text-align':'center', 'padding':'.8em 0',
                             'width':'25%'});
 
@@ -199,9 +203,9 @@ $(function(){
   });
 
   //tabの選択時
-  $("#tab-title li").on('click', function(){
+  $("#tab_title li").on('click', function(){
     var position = $(this).index(); //選択されたタブのINDEX
-    var contents = $("#tab-contents li");
+    var contents = $("#tab_contents li");
     contents.removeClass('active');
     contents.eq(position).addClass('active');
   });
