@@ -168,7 +168,7 @@ $(function(){
 
 
     $("ul, li").css({'display':'block', 'margin':'0', 'padding':'0', 'list-style-type':'none'});
-    $("#tab_title").css('width', '100%');
+    $("#tab_title").css({'position':'relative', 'width':'100%'});
     $("#tab_title:before, #tab_title:after").css({'display':'table', 'content':''});
     $("#tab_title:after").css('clear', 'both');
     $("#tab_title li").css({'display':'inline-block', 'background-color':'#fa6d2e',
@@ -185,9 +185,9 @@ $(function(){
     //tabの選択時
     $("#tab_title li").on('click', function(){
       var position = $(this).index(); //選択されたタブのINDEX
-      var contents = $("#tab_contents li");
-      contents.removeClass('active');
-      contents.eq(position).addClass('active');
+      var $contents = $("#tab_contents li");
+      $contents.removeClass('active');
+      $contents.eq(position).addClass('active');
 
       //スライドバー
       var positionSlider = $(this).width()*potision; //スライダーの位置
