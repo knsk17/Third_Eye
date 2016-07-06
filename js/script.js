@@ -163,7 +163,7 @@ $(function(){
     //tabの選択時
     $("#tab_title li").on('click', function(){
       var position = $(this).index(); //選択されたタブのINDEX
-      var $contents = $("#tab_contents li");
+      var $contents = $("#tab_contents .listContent");
       $contents.removeClass('active');
       $contents.eq(position).addClass('active');
 
