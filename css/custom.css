@@ -1,1 +1,5 @@
-
+#tab_contents li{
+  display:none;
+  padding:1.4em;
+  background-color:#90cbc7;
+}

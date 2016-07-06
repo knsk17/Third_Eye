@@ -9,8 +9,10 @@ var AreaModel = function(){
 }
 
 var PoliticianModel = function(){
-  this.label; //市区町村名
-  this.group; //議会区分
+  this.area; //市区町村名
+  this.label; //国県市区町村
+  this.belonging; //所属政党
+  this.status; //議員区分名
   this.account; //Twitterアカウント名
   this.name; //名前
 }
@@ -93,18 +95,18 @@ $(function(){
       data.shift(); //一つはカテゴリ名の配列なので削除(.shiftは0番目の添え字の要素を取り除く)
       //全市区町村のデータが配列として取得されているので、選択した市区町村のものを抽出
       var selectedArea = getSelectedAreaName();
-      var groups = [];
       for(var i in data){
         var row = data[i]; //1人当たりのデータ(配列)
         if(row[0] == selectedArea){
           var politician = new PoliticianModel();
-          politician.label = row[0];
-          politician.group = row[1];
-          politician.account = row[2];
-          politician.name = row[3];
+          politician.area = row[0];
+          politician.label = row[1];
+          politician.belonging = row[2];
+          politician.status = row[3];
+          politician.account = row[4];
+          politician.name = row[5];
 
           politicianModels.push(politician);
-          groups.push(row[1]);
         }
       }
 
@@ -132,16 +134,50 @@ $(function(){
     tab_html += "<ul id='tab_contents'>";
     for(var num=1; num<5; num++){
       if(num==1){
-        tab_html += "<li id='content" + num +"' class='active'></li>";
+        tab_html += "<li id='content" + num +"' class='listContent active'></li>";
         continue;
       }
-      tab_html += "<li id='content" + num +"'></li>";
+      tab_html += "<li id='content" + num +"' class='listContent'></li>";
     }
     tab_html += "</ul>";
 
     /*HTMLに反映*/
     tab.html(tab_html);
 
+
+    $("ul, li").css({'display':'block', 'margin':'0', 'padding':'0', 'list-style-type':'none'});
+    $("#tab_title").css({'position':'relative', 'width':'100%'});
+    $("#tab_title:before, #tab_title:after").css({'display':'table', 'content':''});
+    $("#tab_title:after").css('clear', 'both');
+    $("#tab_title li").css({'display':'inline-block', 'background-color':'#fa6d2e',
+                            'color':'#fff', 'text-align':'center', 'padding':'.8em 0',
+                            'width':'25%', 'cursor':'pointer'});
+    $(".tab-title-bar").css({'position':'absolute', 'left':'0', 'bottom':'0',
+                              'width':'25%', 'height':'3px', 'background-color':'#FAB42E',
+                              '-webkit-transition':' .30s ease-in-out',
+                              '-moz-transition':' .30s ease-in-out',
+                              '-o-transition':' .30s ease-in-out',
+                              'transition':' .30s ease-in-out'})
+    // $("#tab_contents li").css({'display':'none', 'padding':'1.4em', 'background-color':'#90cbc7'});
+    $("#tab_contents li.active").css('display', 'block');
+    //tabの選択時
+    $("#tab_title li").on('click', function(){
+      var position = $(this).index(); //選択されたタブのINDEX
+      var $contents = $("#tab_contents li");
+      $contents.removeClass('active');
+      $contents.eq(position).addClass('active');
+
+      //スライドバー
+      var positionSlider = $(this).width()*position; //スライダーの位置
+      $(".tab-title-bar").css('left', positionSlider+'px');
+    });
+  }
+
+  function updateData(){
+    var selected_area = getSelectedAreaName(); //選択エリア
+    /*
+      タブへのデータ反映
+    */
     //国・県タブ
     $("#tab2").html("国");
     $("#tab3").html("県");
@@ -165,34 +201,39 @@ $(function(){
         $("#tab4").html("村");
         break;
     }
+    /*
+      コンテンツ部分へのデータ反映
+    */
+    //全てのタブコンテンツにデータ無し用レイアウトを挿入
+    var list_html += "<ul id='list'>";
+    list_html += "<li class='noData'>該当するデータはありません</li>";
+    list_html += "</ul>";
+    $(".listContent").html(list_html);
+    //個別のタブコンテンツ処理
+    for (var i = 0; i <  politicianModels.length; i++) {
+      var politician = politicianModels[i];
+      var labelGroup = politician.group;
 
+      switch (labelGroup) {
+        case "市長":
+          //noData部分を削除
+          $("#content1 .noData").remove();
+          var content1_html += "<li>";
+          content1_html += "<p>"+ politician.belonging+" <br/>"+politician.status+"</p>";
+          content1_html +="<h3>"+politician.name+"</h3>";
+          content1_html += "<a href='#'>@"+politician.account+"</a>";
+          content1_html += "</li>";
+          $("#content1 #list").html(content1_html);
+          break;
+        case "国政":
+          break;
+        case "県議会":
+          break;
+        case "市議会":
+          break;
+      }
+    }
 
-    $("ul, li").css({'display':'block', 'margin':'0', 'padding':'0', 'list-style-type':'none'});
-    $("#tab_title").css({'position':'relative', 'width':'100%'});
-    $("#tab_title:before, #tab_title:after").css({'display':'table', 'content':''});
-    $("#tab_title:after").css('clear', 'both');
-    $("#tab_title li").css({'display':'inline-block', 'background-color':'#fa6d2e',
-                            'color':'#fff', 'text-align':'center', 'padding':'.8em 0',
-                            'width':'25%', 'cursor':'pointer'});
-    $(".tab-title-bar").css({'position':'absolute', 'left':'0', 'bottom':'0',
-                              'width':'25%', 'height':'3px', 'background-color':'#FAB42E',
-                              '-webkit-transition':' .30s ease-in-out',
-                              '-moz-transition':' .30s ease-in-out',
-                              '-o-transition':' .30s ease-in-out',
-                              'transition':' .30s ease-in-out'})
-    $("#tab_contents li").css({'display':'none', 'padding':'1.4em', 'background-color':'#90cbc7'});
-    $("#tab_contents li.active").css('display', 'block');
-    //tabの選択時
-    $("#tab_title li").on('click', function(){
-      var position = $(this).index(); //選択されたタブのINDEX
-      var $contents = $("#tab_contents li");
-      $contents.removeClass('active');
-      $contents.eq(position).addClass('active');
-
-      //スライドバー
-      var positionSlider = $(this).width()*position; //スライダーの位置
-      $(".tab-title-bar").css('left', positionSlider+'px');
-    });
   }
 
   function onChangeSelect(index){
@@ -205,11 +246,13 @@ $(function(){
     //初期値以外の処理
     setSelectedAreaName(areaModels[index].label); //選択市区町村を保存
     if($("#tabs").children().length === 0){
-      //accordionに子要素が無い場合、roster.csvからタブリスト生成
+      //tabsに子要素が無い場合、roster.csvからタブリスト生成
       createPoliList(function(){
         createTabMenu();
       });
-
+      updateData();
+    }else {
+      updateData();
     }
   }
 
