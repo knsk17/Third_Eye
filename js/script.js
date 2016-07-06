@@ -205,7 +205,8 @@ $(function(){
       コンテンツ部分へのデータ反映
     */
     //全てのタブコンテンツにデータ無し用レイアウトを挿入
-    var list_html += "<ul id='list'>";
+    var list_html = "";
+    list_html += "<ul id='list'>";
     list_html += "<li class='noData'>該当するデータはありません</li>";
     list_html += "</ul>";
     $(".listContent").html(list_html);
@@ -218,7 +219,8 @@ $(function(){
         case "市長":
           //noData部分を削除
           $("#content1 .noData").remove();
-          var content1_html += "<li>";
+          var content1_html = "";
+          content1_html += "<li>";
           content1_html += "<p>"+ politician.belonging+" <br/>"+politician.status+"</p>";
           content1_html +="<h3>"+politician.name+"</h3>";
           content1_html += "<a href='#'>@"+politician.account+"</a>";
