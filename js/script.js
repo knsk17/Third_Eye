@@ -215,7 +215,7 @@ $(function(){
     //個別のタブコンテンツ処理
     for (var i = 0; i <  politicianModels.length; i++) {
       var politician = politicianModels[i];
-      var labelGroup = politician.group;
+      var labelGroup = politician.label;
 
       switch (labelGroup) {
         case "市長":
