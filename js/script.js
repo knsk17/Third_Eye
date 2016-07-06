@@ -117,7 +117,7 @@ $(function(){
   /*
     accordion部分にタブリストを生成
   */
-  function createTabMenu(){
+  function createTabMenu(dataCallback){
     var tab = $("#tabs");
     var tab_html ="";
     var selected_area = getSelectedAreaName();
@@ -171,6 +171,8 @@ $(function(){
       var positionSlider = $(this).width()*position; //スライダーの位置
       $(".tab-title-bar").css('left', positionSlider+'px');
     });
+
+    dataCallback();
   }
 
   function updateData(){
@@ -236,6 +238,9 @@ $(function(){
       }
     }
 
+    $("#list").css('list-style-type','none');
+
+
   }
 
   function onChangeSelect(index){
@@ -250,9 +255,10 @@ $(function(){
     if($("#tabs").children().length === 0){
       //tabsに子要素が無い場合、roster.csvからタブリスト生成
       createPoliList(function(){
-        createTabMenu();
+        createTabMenu(function(){
+          updateData();
+        });
       });
-      updateData();
     }else {
       updateData();
     }
