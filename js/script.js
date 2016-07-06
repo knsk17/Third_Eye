@@ -158,7 +158,7 @@ $(function(){
                               '-moz-transition':' .30s ease-in-out',
                               '-o-transition':' .30s ease-in-out',
                               'transition':' .30s ease-in-out'})
-    // $("#tab_contents li").css({'display':'none', 'padding':'1.4em', 'background-color':'#90cbc7'});
+    $("#tab_contents li").css({'display':'none', 'padding':'1.4em', 'background-color':'#90cbc7'});
     $("#tab_contents li.active").css('display', 'block');
     //tabの選択時
     $("#tab_title li").on('click', function(){
