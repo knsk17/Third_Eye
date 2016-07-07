@@ -216,6 +216,10 @@ $(function(){
     list_html += "</ul>";
     $(".listContent").html(list_html);
     //個別のタブコンテンツ処理
+    var content1_html ="";
+    var content2_html ="";
+    var content3_html ="";
+    var content4_html ="";
     for (var i = 0; i <  politicianModels.length; i++) {
       var politician = politicianModels[i];
       var labelGroup = politician.label;
@@ -224,50 +228,51 @@ $(function(){
         case "市長":
           //noData部分を削除
           $("#content1 .noData").remove();
-          var content1_html = "";
           content1_html += "<li>";
           content1_html += "<p>"+ politician.belonging+" <br/>"+politician.status+"</p>";
           content1_html +="<h3>"+politician.name+"</h3>";
           content1_html += "<a href='#'>@"+politician.account+"</a>";
           content1_html += "</li>";
-          $("#content1 .list").html(content1_html);
           break;
         case "国":
           if(!($("#content2 .noData").length)){
             $("#content2 .noData").remove();
           }
-          var content2_html ="";
+          content2_html += "<li>";
           content2_html += "<p>"+ politician.belonging+" <br/>"+politician.status+"</p>";
           content2_html += "<h3>"+politician.name+"</h3>";
           content2_html += "<a href='#'>@"+politician.account+"</a>";
           content2_html += "</li>";
-          $("#content2 .list").html(content2_html);
           break;
         case "県":
           if(!($("#content3 .noData").length)){
             $("#content3 .noData").remove();
           }
-          var content3_html = "";
+          content3_html += "<li>";
           content3_html += "<p>"+ politician.belonging+" <br/>"+politician.status+"</p>";
           content3_html += "<h3>"+politician.name+"</h3>";
           content3_html += "<a href='#'>@"+politician.account+"</a>";
           content3_html += "</li>";
-          $("#content3 .list").html(content3_html);
           break;
         case "市":
           if(!($("#content4 .noData").length)){
             $("#content4 .noData").remove();
           }
-          var content4_html = "";
+          content4_html += "<li>";
           content4_html += "<p>"+ politician.belonging+" <br/>"+politician.status+"</p>";
           content4_html += "<h3>"+politician.name+"</h3>";
           content4_html += "<a href='#'>@"+politician.account+"</a>";
           content4_html += "</li>";
-          $("#content4 .list").html(content4_html);
           break;
       }
 
     }
+    //要素挿入
+    $("#content1 .list").html(content1_html);
+    $("#content2 .list").html(content2_html);
+    $("#content3 .list").html(content3_html);
+    $("#content4 .list").html(content4_html);
+
     //初期選択タブ
     $("#content1 .list").addClass('active');
     // $(".list").css({'display':'none', 'padding':'1.4em', 'background-color':'#90cbc7', 'list-style-type':'none'});
