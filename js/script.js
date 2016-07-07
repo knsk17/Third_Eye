@@ -230,7 +230,7 @@ $(function(){
           content1_html +="<h3>"+politician.name+"</h3>";
           content1_html += "<a href='#'>@"+politician.account+"</a>";
           content1_html += "</li>";
-          $("#content1 #list").html(content1_html);
+          $("#content1 .list").html(content1_html);
           break;
         case "国政":
           break;
