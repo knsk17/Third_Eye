@@ -242,8 +242,7 @@ $(function(){
       }
     }
 
-    $("#content1 ul").addClass('active');
-    $(".list").css({'display':'none', 'padding':'1.4em', 'background-color':'#90cbc7', 'list-style-type':'none'});
+    // $(".list").css({'display':'none', 'padding':'1.4em', 'background-color':'#90cbc7', 'list-style-type':'none'});
 
   }
 

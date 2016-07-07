@@ -1,3 +1,10 @@
 .list.active{
   display:block;
 }
+
+.list{
+  display:none;
+  padding:1.4em;
+  background-color: #90cbc7;
+  list-style-type: none;
+}
