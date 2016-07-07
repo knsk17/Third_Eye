@@ -226,43 +226,36 @@ $(function(){
 
       switch (labelGroup) {
         case "市長":
-          //noData部分を削除
-          // $("#content1 .noData").remove();
+
           content1_html += "<li>";
-          content1_html += "<h6>"+ politician.belonging+" </h6>";
-          content1_html += "<h6>"+politician.status+"</h6>";
+          content1_html += "<span>"+ politician.belonging+" </span><br>";
+          content1_html += "<span>"+politician.status+"<span>";
           content1_html +="<h3>"+politician.name+"</h3>";
-          content1_html += "<a href='#'>@"+politician.account+"</a>";
+          content1_html += "<a href='https://twitter.com/"+politician.account+"' target='_blank'>@"+politician.account+"</a>";
           content1_html += "</li>";
           break;
         case "国":
-          // if(!($("#content2 .noData").length)){
-          //   $("#content2 .noData").remove();
-          // }
+
           content2_html += "<li>";
           content2_html += "<p>"+ politician.belonging+" <br/>"+politician.status+"</p>";
           content2_html += "<h3>"+politician.name+"</h3>";
-          content2_html += "<a href='#'>@"+politician.account+"</a>";
+          content2_html += "<a href='https://twitter.com/"+politician.account+"' target='_blank'>@"+politician.account+"</a>";
           content2_html += "</li>";
           break;
         case "県":
-          // if(!($("#content3 .noData").length)){
-          //   $("#content3 .noData").remove();
-          // }
+
           content3_html += "<li>";
           content3_html += "<p>"+ politician.belonging+" <br/>"+politician.status+"</p>";
           content3_html += "<h3>"+politician.name+"</h3>";
-          content3_html += "<a href='#'>@"+politician.account+"</a>";
+          content3_html += "<a href='https://twitter.com/"+politician.account+"' target='_blank'>@"+politician.account+"</a>";
           content3_html += "</li>";
           break;
         case "市":
-          // if(!($("#content4 .noData").length)){
-          //   $("#content4 .noData").remove();
-          // }
+
           content4_html += "<li>";
           content4_html += "<p>"+ politician.belonging+" <br/>"+politician.status+"</p>";
           content4_html += "<h3>"+politician.name+"</h3>";
-          content4_html += "<a href='#'>@"+politician.account+"</a>";
+          content4_html += "<a href='https://twitter.com/"+politician.account+"' target='_blank'>@"+politician.account+"</a>";
           content4_html += "</li>";
           break;
       }
