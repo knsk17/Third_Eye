@@ -233,7 +233,7 @@ $(function(){
           $("#content1 .list").html(content1_html);
           $("#content1 .list").addClass('active');
           break;
-        case "国政":
+        case "国":
           if(!($("#content2 .noData").length)){
             $("#content2 .noData").remove();
           }
@@ -244,7 +244,7 @@ $(function(){
           content2_html += "</li>";
           $("#content2 .list").html(content2_html);
           break;
-        case "県議会":
+        case "県":
           if(!($("#content3 .noData").length)){
             $("#content3 .noData").remove();
           }
@@ -255,7 +255,7 @@ $(function(){
           content3_html += "</li>";
           $("#content3 .list").html(content3_html);
           break;
-        case "市議会":
+        case "市":
           if(!($("#content4 .noData").length)){
             $("#content4 .noData").remove();
           }
