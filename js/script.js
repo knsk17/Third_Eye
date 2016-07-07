@@ -231,6 +231,7 @@ $(function(){
           content1_html += "<a href='#'>@"+politician.account+"</a>";
           content1_html += "</li>";
           $("#content1 .list").html(content1_html);
+          $("#content1 .list").addClass('active');
           break;
         case "国政":
           break;
@@ -242,9 +243,7 @@ $(function(){
     }
 
     $("#content1 ul").addClass('active');
-    $(".list").css('list-style-type','none');
-    $(".list").css({'display':'none', 'padding':'1.4em', 'background-color':'#90cbc7'});
-    $(".list.active").css('display', 'block');
+    $(".list").css({'display':'none', 'padding':'1.4em', 'background-color':'#90cbc7', 'list-style-type':'none'});
 
   }
 
