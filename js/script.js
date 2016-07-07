@@ -95,6 +95,7 @@ $(function(){
       data.shift(); //一つはカテゴリ名の配列なので削除(.shiftは0番目の添え字の要素を取り除く)
       //全市区町村のデータが配列として取得されているので、選択した市区町村のものを抽出
       var selectedArea = getSelectedAreaName();
+      politicianModels.length = 0; //配列初期化
       for(var i in data){
         var row = data[i]; //1人当たりのデータ(配列)
         if(row[0] == selectedArea){
@@ -158,7 +159,7 @@ $(function(){
                               '-moz-transition':' .30s ease-in-out',
                               '-o-transition':' .30s ease-in-out',
                               'transition':' .30s ease-in-out'})
-    $("#tab_contents .listContent.active").css({'display':'none', 'padding':'1.4em', 'background-color':'#90cbc7'});
+    $("#tab_contents .listContent").css({'display':'none', 'padding':'1.4em', 'background-color':'#90cbc7'});
     $("#tab_contents .listContent.active").css('display', 'block');
     //tabの選択時
     $("#tab_title li").on('click', function(){
@@ -260,7 +261,10 @@ $(function(){
         });
       });
     }else {
-      updateData();
+      createPoliList(function(){
+        updateData();
+      });
+
     }
   }
 
