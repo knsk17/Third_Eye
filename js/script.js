@@ -132,15 +132,7 @@ $(function(){
     tab_html += "</ul>";
 
     /*TAB-CONTENTS*/
-    tab_html += "<ul id='tab_contents'>";
-    for(var num=1; num<5; num++){
-      if(num==1){
-        tab_html += "<li id='content" + num +"' class='listContent active'></li>";
-        continue;
-      }
-      tab_html += "<li id='content" + num +"' class='listContent'></li>";
-    }
-    tab_html += "</ul>";
+    tab_html += "<ul id='tab_contents'></ul>";
 
     /*HTMLに反映*/
     tab.html(tab_html);
@@ -175,7 +167,18 @@ $(function(){
     dataCallback();
   }
 
+  /*
+    選択された地域からデータを生成
+  */
   function updateData(){
+    //要素追加
+    var $tab_contents = $("#tab_contents");
+    var tab_contents_html ="";
+    for(var num=1; num<5; num++){
+      tab_contents_html += "<li id='content" + num +"' class='listContent'></li>";
+    }
+    $tab_contents.html(tab_contents_html);
+
     var selected_area = getSelectedAreaName(); //選択エリア
     /*
       タブへのデータ反映
@@ -238,6 +241,7 @@ $(function(){
       }
     }
 
+    $("#content1 ul").addClass('active');
     $("#list").css('list-style-type','none');
     $("#list").css({'display':'none', 'padding':'1.4em', 'background-color':'#90cbc7'});
     $("#list.active").css('display', 'block');
