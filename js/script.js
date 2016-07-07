@@ -234,10 +234,37 @@ $(function(){
           $("#content1 .list").addClass('active');
           break;
         case "国政":
+          if(!($("#content2 .noData").length)){
+            $("#content2 .noData").remove();
+          }
+          var content2_html ="";
+          content2_html += "<p>"+ politician.belonging+" <br/>"+politician.status+"</p>";
+          content2_html += "<h3>"+politician.name+"</h3>";
+          content2_html += "<a href='#'>@"+politician.account+"</a>";
+          content2_html += "</li>";
+          $("#content2 .list").html(content2_html);
           break;
         case "県議会":
+          if(!($("#content3 .noData").length)){
+            $("#content3 .noData").remove();
+          }
+          var content3_html = "";
+          content3_html += "<p>"+ politician.belonging+" <br/>"+politician.status+"</p>";
+          content3_html += "<h3>"+politician.name+"</h3>";
+          content3_html += "<a href='#'>@"+politician.account+"</a>";
+          content3_html += "</li>";
+          $("#content3 .list").html(content3_html);
           break;
         case "市議会":
+          if(!($("#content4 .noData").length)){
+            $("#content4 .noData").remove();
+          }
+          var content4_html = "";
+          content4_html += "<p>"+ politician.belonging+" <br/>"+politician.status+"</p>";
+          content4_html += "<h3>"+politician.name+"</h3>";
+          content4_html += "<a href='#'>@"+politician.account+"</a>";
+          content4_html += "</li>";
+          $("#content4 .list").html(content4_html);
           break;
       }
     }
@@ -265,6 +292,10 @@ $(function(){
     }else {
       createPoliList(function(){
         updateData();
+        $(".tab-title-bar").css('left', '0px');
+        var $contents = $(".list");
+        $contents.removeClass('active');
+        $contents.eq(0).addClass('active');
       });
 
     }
