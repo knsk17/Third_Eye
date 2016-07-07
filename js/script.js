@@ -227,17 +227,18 @@ $(function(){
       switch (labelGroup) {
         case "市長":
           //noData部分を削除
-          $("#content1 .noData").remove();
+          // $("#content1 .noData").remove();
           content1_html += "<li>";
-          content1_html += "<p>"+ politician.belonging+" <br/>"+politician.status+"</p>";
+          content1_html += "<h6>"+ politician.belonging+" </h6>";
+          content1_html += "<h6>"+politician.status+"</h6>";
           content1_html +="<h3>"+politician.name+"</h3>";
           content1_html += "<a href='#'>@"+politician.account+"</a>";
           content1_html += "</li>";
           break;
         case "国":
-          if(!($("#content2 .noData").length)){
-            $("#content2 .noData").remove();
-          }
+          // if(!($("#content2 .noData").length)){
+          //   $("#content2 .noData").remove();
+          // }
           content2_html += "<li>";
           content2_html += "<p>"+ politician.belonging+" <br/>"+politician.status+"</p>";
           content2_html += "<h3>"+politician.name+"</h3>";
@@ -245,9 +246,9 @@ $(function(){
           content2_html += "</li>";
           break;
         case "県":
-          if(!($("#content3 .noData").length)){
-            $("#content3 .noData").remove();
-          }
+          // if(!($("#content3 .noData").length)){
+          //   $("#content3 .noData").remove();
+          // }
           content3_html += "<li>";
           content3_html += "<p>"+ politician.belonging+" <br/>"+politician.status+"</p>";
           content3_html += "<h3>"+politician.name+"</h3>";
@@ -255,9 +256,9 @@ $(function(){
           content3_html += "</li>";
           break;
         case "市":
-          if(!($("#content4 .noData").length)){
-            $("#content4 .noData").remove();
-          }
+          // if(!($("#content4 .noData").length)){
+          //   $("#content4 .noData").remove();
+          // }
           content4_html += "<li>";
           content4_html += "<p>"+ politician.belonging+" <br/>"+politician.status+"</p>";
           content4_html += "<h3>"+politician.name+"</h3>";
@@ -268,10 +269,20 @@ $(function(){
 
     }
     //要素挿入
-    $("#content1 .list").html(content1_html);
-    $("#content2 .list").html(content2_html);
-    $("#content3 .list").html(content3_html);
-    $("#content4 .list").html(content4_html);
+    if(content1_html.length != 0){
+      $("#content1 .list").html(content1_html);
+    }
+    if (content2_html.length != 0) {
+      $("#content2 .list").html(content2_html);
+    }
+    if (content3_html.length != 0) {
+      $("#content3 .list").html(content3_html);
+    }
+    if (content4_html.length != 0) {
+      $("#content4 .list").html(content4_html);
+    }
+
+
 
     //初期選択タブ
     $("#content1 .list").addClass('active');
