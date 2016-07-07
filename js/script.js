@@ -231,7 +231,6 @@ $(function(){
           content1_html += "<a href='#'>@"+politician.account+"</a>";
           content1_html += "</li>";
           $("#content1 .list").html(content1_html);
-          $("#content1 .list").addClass('active');
           break;
         case "国":
           if(!($("#content2 .noData").length)){
@@ -267,8 +266,10 @@ $(function(){
           $("#content4 .list").html(content4_html);
           break;
       }
-    }
 
+    }
+    //初期選択タブ
+    $("#content1 .list").addClass('active');
     // $(".list").css({'display':'none', 'padding':'1.4em', 'background-color':'#90cbc7', 'list-style-type':'none'});
 
   }
