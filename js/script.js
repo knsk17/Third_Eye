@@ -159,12 +159,11 @@ $(function(){
                               '-moz-transition':' .30s ease-in-out',
                               '-o-transition':' .30s ease-in-out',
                               'transition':' .30s ease-in-out'})
-    $("#tab_contents .listContent").css({'display':'none', 'padding':'1.4em', 'background-color':'#90cbc7'});
-    $("#tab_contents .listContent.active").css('display', 'block');
+
     //tabの選択時
     $("#tab_title li").on('click', function(){
       var position = $(this).index(); //選択されたタブのINDEX
-      var $contents = $("#tab_contents .listContent");
+      var $contents = $("#list");
       $contents.removeClass('active');
       $contents.eq(position).addClass('active');
 
@@ -240,7 +239,8 @@ $(function(){
     }
 
     $("#list").css('list-style-type','none');
-
+    $("#list").css({'display':'none', 'padding':'1.4em', 'background-color':'#90cbc7'});
+    $("#list.active").css('display', 'block');
 
   }
 
