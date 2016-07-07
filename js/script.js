@@ -228,9 +228,9 @@ $(function(){
         case "市長":
 
           content1_html += "<li>";
-          content1_html += "<span>"+ politician.belonging+" </span><br>";
-          content1_html += "<span>"+politician.status+"<span>";
-          content1_html +="<h3>"+politician.name+"</h3>";
+          content1_html += politician.belonging+"<br>";
+          content1_html += politician.status;
+          content1_html +="<big>"+politician.name+"</big>";
           content1_html += "<a href='https://twitter.com/"+politician.account+"' target='_blank'>@"+politician.account+"</a>";
           content1_html += "</li>";
           break;
