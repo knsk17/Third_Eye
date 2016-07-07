@@ -155,7 +155,7 @@ $(function(){
     //tabの選択時
     $("#tab_title li").on('click', function(){
       var position = $(this).index(); //選択されたタブのINDEX
-      var $contents = $("#list");
+      var $contents = $(".list");
       $contents.removeClass('active');
       $contents.eq(position).addClass('active');
 
@@ -211,7 +211,7 @@ $(function(){
     */
     //全てのタブコンテンツにデータ無し用レイアウトを挿入
     var list_html = "";
-    list_html += "<ul id='list'>";
+    list_html += "<ul class='list'>";
     list_html += "<li class='noData'>該当するデータはありません</li>";
     list_html += "</ul>";
     $(".listContent").html(list_html);
@@ -242,9 +242,9 @@ $(function(){
     }
 
     $("#content1 ul").addClass('active');
-    $("#list").css('list-style-type','none');
-    $("#list").css({'display':'none', 'padding':'1.4em', 'background-color':'#90cbc7'});
-    $("#list.active").css('display', 'block');
+    $(".list").css('list-style-type','none');
+    $(".list").css({'display':'none', 'padding':'1.4em', 'background-color':'#90cbc7'});
+    $(".list.active").css('display', 'block');
 
   }
 
