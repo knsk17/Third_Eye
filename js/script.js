@@ -230,7 +230,7 @@ $(function(){
           content1_html += "<li>";
           content1_html += politician.belonging+"<br>";
           content1_html += politician.status+"<br>";
-          content1_html +="<big>"+politician.name+"</big>";
+          content1_html +="<h4>"+politician.name+"</h4>";
           content1_html += "<a href='https://twitter.com/"+politician.account+"' target='_blank'>@"+politician.account+"</a>";
           content1_html += "</li>";
           break;
