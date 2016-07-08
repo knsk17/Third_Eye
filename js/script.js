@@ -95,10 +95,11 @@ $(function(){
       data.shift(); //一つはカテゴリ名の配列なので削除(.shiftは0番目の添え字の要素を取り除く)
       //全市区町村のデータが配列として取得されているので、選択した市区町村のものを抽出
       var selectedArea = getSelectedAreaName();
+      var saitama = "埼玉県"; //参議院は大選挙区及び比例なので全ての市区町村で表示（比例は保留）
       politicianModels.length = 0; //配列初期化
       for(var i in data){
         var row = data[i]; //1人当たりのデータ(配列)
-        if(row[0] == selectedArea){
+        if(row[0] == selectedArea　|| row[0] == saitama){
           var politician = new PoliticianModel();
           politician.area = row[0];
           politician.label = row[1];
@@ -226,34 +227,33 @@ $(function(){
 
       switch (labelGroup) {
         case "市長":
-
           content1_html += "<li>";
           content1_html += politician.belonging+"<br>";
           content1_html += politician.status+"<br>";
-          content1_html +="<h4>"+politician.name+"</h4>";
+          content1_html +="<h3>"+politician.name+"</h3>";
           content1_html += "<a href='https://twitter.com/"+politician.account+"' target='_blank'>@"+politician.account+"</a>";
           content1_html += "</li>";
           break;
         case "国":
-
           content2_html += "<li>";
-          content2_html += "<p>"+ politician.belonging+" <br/>"+politician.status+"</p>";
+          content2_html += politician.belonging+"<br>";
+          content2_html += politician.status+"<br>";
           content2_html += "<h3>"+politician.name+"</h3>";
           content2_html += "<a href='https://twitter.com/"+politician.account+"' target='_blank'>@"+politician.account+"</a>";
           content2_html += "</li>";
           break;
         case "県":
-
           content3_html += "<li>";
-          content3_html += "<p>"+ politician.belonging+" <br/>"+politician.status+"</p>";
+          content3_html += politician.belonging+"<br>";
+          content3_html += politician.status+"<br>";
           content3_html += "<h3>"+politician.name+"</h3>";
           content3_html += "<a href='https://twitter.com/"+politician.account+"' target='_blank'>@"+politician.account+"</a>";
           content3_html += "</li>";
           break;
         case "市":
-
           content4_html += "<li>";
-          content4_html += "<p>"+ politician.belonging+" <br/>"+politician.status+"</p>";
+          content4_html += politician.belonging+" <br>";
+          content4_html += politician.status+"<br>";
           content4_html += "<h3>"+politician.name+"</h3>";
           content4_html += "<a href='https://twitter.com/"+politician.account+"' target='_blank'>@"+politician.account+"</a>";
           content4_html += "</li>";
@@ -275,14 +275,15 @@ $(function(){
       $("#content4 .list").html(content4_html);
     }
 
-
-
     //初期選択タブ
     $("#content1 .list").addClass('active');
     // $(".list").css({'display':'none', 'padding':'1.4em', 'background-color':'#90cbc7', 'list-style-type':'none'});
 
   }
 
+  /*
+    地域選択イベント
+  */
   function onChangeSelect(index){
     if(index == -1){
       //初期値の場合,変化なし

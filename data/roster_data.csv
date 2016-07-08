@@ -27,6 +27,7 @@ label,class,belonging,position,account,name
 所沢市,市,無所属,市議会議員,torunakamura,中村とおる
 所沢市,市,無所属,市議会議員,taniguchi1965,谷口まさのり
 所沢市,市,無所属,市議会議員,oginoyasuo,荻野泰男
+所沢市,市,公明党,市議会議員,tokorozawa_hi64,村上浩
 加須市,国,自民党,衆議院埼玉12区,nonakajimusho,野中厚
 羽生市,国,自民党,衆議院埼玉12区,nonakajimusho,野中厚
 鴻巣市,国,自民党,衆議院埼玉12区,nonakajimusho,野中厚
@@ -102,3 +103,9 @@ label,class,belonging,position,account,name
 三芳町,町長,無所属,町長,hayashiisao,林伊佐雄
 和光市,市長,無所属,市長,takeyanm,松本武洋
 深谷市,市長,無所属,市長,kojima_susumu,小島進
+埼玉県,国,無所属,参議院議員,koudakuni,こうだ邦子
+埼玉県,国,公明党,参議院議員,m_nishida,西田まこと
+埼玉県,国,民進党,参議院議員,oonomotohiro,大野もとひろ
+埼玉県,国,共産党,参議院議員候補,gaku_ito,伊藤岳
+埼玉県,国,諸派(幸福実現党),参議院議員候補,kojimaichiro,小島一郎
+埼玉県,国,自民党,参議院議員,sekiguchi0229,関口まさかず
