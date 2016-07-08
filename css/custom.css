@@ -4,7 +4,8 @@
 
 .list{
   display:none;
-  padding:1px, 0px;
+  margin-top: 1px;
+  margin-bottom: 1px;
   background-color: #19495d;
   list-style-type: none;
 }
