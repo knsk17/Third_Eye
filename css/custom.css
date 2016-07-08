@@ -4,13 +4,12 @@
 
 .list{
   display:none;
-  padding:1.4em;
-  background-color: #c9e5f0;
+  padding:1px, 0px;
+  background-color: #19495d;
   list-style-type: none;
 }
 
 .list li{
-  margin-top:-1px;
-  padding:2px 1px;
-  border-top:1px solid #19495d;
+  padding:1.4em;
+  background-color: #c9e5f0;
 }
