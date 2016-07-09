@@ -65,15 +65,15 @@ $(function(){
 
         areaModels.push(area);
       }
-      // var selected_name = getSelectedAreaName();
+      var selected_name = getSelectedAreaName();
       var area_select_form = $("#select_area"); //selectフォーム
       var select_html = "";
       select_html += '<option value = "-1">地域を選択してください</option>';
       for(var index in areaModels){
         var area_name = areaModels[index].label;
-        // var selected = (selected_name == area_name) ? 'selected="selected"' : "";
+        var selected = (selected_name == area_name) ? 'selected="selected"' : "";
 
-        select_html += '<option value="' + index + '" >' + area_name + '</option>';
+        select_html += '<option value="' + index + '" ' + selected + '>' + area_name + '</option>';
       }
 
       //デバッグ用
