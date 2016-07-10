@@ -18,12 +18,50 @@
   <!--地域選択後展開部分-->
   <div id = "tabs"></div>
   <select class="form-control" id="select_area"></select>
-
+  <div>
+    <a data-toggle="collapse" href="#collapseHelp">第三（者）の目とは</a>
+  </div>
+  <di id="collapseHelp" class="collapse">
+    <p><b>埼玉県内</b>のお住まいの地域から、政治家の方々のインターネット上における活動（現在はTwitterのみ）を閲覧できるWebアプリです。</p>
+    <h3>目的</h3>
+    <p>2016年7月に、選挙権年齢が20歳以上から18歳以上に引き下げられて初めての選挙が行われました。
+    また、これまで通り期日前選挙や投票所の拡大等で今まで以上に「投票」という行動に対する障壁が
+    低くなりつつあります。<br>その一方で、投票の意思決定に対する障壁は依然高いのではないかと感じています。
+    政治家の方々も、さまざまなインターネットメディア等で活動をしていらっしゃいますが、認知度はさほど高くないのでは
+    ないでしょうか。市議会議員や、県議会議員ではそれがより顕著だと思います。<br>
+    この「第三(者)の目」はそういった情報に対する障壁を低くしたいという目的があります。
+    </p>
+    <h3>使い方</h3>
+    <p>お住まいの地域を選択して頂くと、その地域と関わりのある「市区町村長」、「国政議員」、「県議会議員」、「市区町村議会議員」ごとに
+    一覧表示が行われます。<br>
+    「＠」から始まるリンクをタップすることで、該当のTwitterページに移動します。<br>
+    現在はTwitterアカウントのみの掲載となっております。更新が途絶えているアカウントも見られますが、それもそれで一つの情報と言えるかもしれません。<br>
+    なお、掲載しているTwitterアカウントには不足がある場合がある点ご了承ください。ご要望があれば掲載いたします。
+    </p>
+    <h3>その他</h3>
+    <p>当Webアプリは、一人の若輩者が勢いで製作したものです。<b>政治や、プログラミングに関する知識が十分であるとは言えません。</b>
+    また、サーバーを借りるなど大層なことは出来ておらず、Github pagesを利用して公開しているのでなにか不都合があるかもしれません。
+    ですので、もし当Webアプリに賛同して頂ける方がいらっしゃいましたら、情報の拡充等ご協力いただければ幸いです。<br>
+    連絡先→<a href="https://twitter.com/mytown_knsk">Twitter</a><br>
+    ソースコードはGithubにて公開しております。→<a href="https://github.com/knsk17/Third_Eye"  target="_blank">Github</a><br>
+    <small>「第三(者)の目」という命名は、某知事の発言から着想を得ました。</small><br>
+    最後になりますが、当Webアプリはあくまで中立的に情報を掲載しており、特定の政党や団体を支持するものではありません。
+    </p>
+  </di>
   <!--ｊQueryのJS読込み-->
   <script src="js/jquery-1.12.4.min.js"></script>
   <!--BootstrapのJS読込み-->
   <script src="js/bootstrap.min.js"></script>
   <script src="js/script.js"></script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
+  ga('create', 'UA-80506888-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </body>
 </html>

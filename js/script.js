@@ -4,6 +4,7 @@
   id名について、複数単語を合わせる場合は「＿」アンダーバーでつなぐ
 */
 
+//おそらく不十分（不要または、PoliticianModel配列を持たせる）
 var AreaModel = function(){
   this.label; //市区町村名
 }
