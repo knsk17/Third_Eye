@@ -20,8 +20,8 @@
   border-top: 1px solid #0b5785;
 }
 #help{
-  margin-top: 20px;
-  margin-left: 10px;
+  padding-top: 30px;
+  padding-left: 20px;
   font-size: 180%;
 }
 #collapseHelp{
