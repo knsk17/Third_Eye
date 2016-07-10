@@ -77,10 +77,6 @@ $(function(){
         select_html += '<option value="' + index + '" ' + selected + '>' + area_name + '</option>';
       }
 
-      //デバッグ用
-      if (typeof dump == "function") {
-        dump(areaModels);
-      }
 
       //HTMLへ適用
       area_select_form.html(select_html);
