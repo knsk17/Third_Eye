@@ -19,3 +19,11 @@
   padding-bottom: 5px;
   border-top: 1px solid #0b5785;
 }
+div #help{
+  margin-top: 5px;
+  margin-left: 5px;
+  font-size: 150%;
+}
+div #collapseHelp{
+  padding:10px 15px;
+}
